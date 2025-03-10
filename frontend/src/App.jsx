@@ -1,40 +1,12 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import BookCard from './components/BookCard'
+import BookList from './components/BookList'
 
 const logged = true
-
-const book = {
-  cape : "https://upload.wikimedia.org/wikipedia/commons/e/e8/King-James-Version-Bible-first-edition-title-page-1611.png",
-  name : "Bible - KJV",
-  year : 1611,
-  author : "God"
-};
-
-const people = [
-  {id:1, name:"Cesar", isFine:false},
-  {id:2, name:"Gustavo", isFine:true},
-  {id:3, name:"Pedro", isFine:true}
-];
-
-
-function ListOfPeople(){
-  const listPeople = people.map(person=>
-    <li key={person.id}
-        style={{color: person.isFine?'green' : 'red'}}
-    >
-      {person.name}
-    </li>
-  )
-
-  return (
-    <ul>
-      {listPeople}
-    </ul>
-  )
-}
-
+const URL = "http://localhost:3000/books"
 
 function NotFound(){
   return (
@@ -52,21 +24,9 @@ function MyButton({count,onClick}) {
   );
 }
 
-function Book(){
-  return(
-    <>
-      <img
-        className='bookCape'
-        src={book.cape}
-      />
-      <h2>{book.name}</h2>
-      <p>{book.year}</p>
-      <p><b>{book.author}</b></p>
-    </>
-  )
-}
-
 function App() {
+  const [bookList, setBookList] = useState([])
+
   const [count, setCount] = useState(0)
   function handleClick(){
     setCount(count + 1)
@@ -74,11 +34,8 @@ function App() {
 
   return (
     <div>
-    <h1>Hello World!</h1>
-      <MyButton count = {count} onClick={handleClick}/><br/>
-      <MyButton count = {count}  onClick={handleClick}/><br/>
-      {logged ?(<Book/>):(<NotFound/>)}
-      <ListOfPeople/>
+    <h1>Book Keeper</h1>
+      <BookList/>
     </div>
   )
 }
