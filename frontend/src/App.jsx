@@ -34,8 +34,12 @@ function App() {
 
   return (
     <div>
-    <h1>Book Keeper</h1>
-      <BookList/>
+      <header>
+        <img src='./public/books.svg' width="50px"></img>
+        <h1>Book Keeper</h1>
+
+      </header>
+        <BookList/>
     </div>
   )
 }

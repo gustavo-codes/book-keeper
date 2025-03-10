@@ -4,6 +4,36 @@ ul{
   margin-left: 0; /* Remove a margem padrão */
 }
 
+button{
+  box-sizing: border-box;
+  color: #f2f2f2;
+  background-color: #212121;
+  border: none;
+  border-radius: 4px;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  padding-left: 8%;
+  padding-right: 8%;
+  margin: 2%;
+}
+
+button:hover{
+  border: 1px solid #fefbfb ;
+  transition: 200ms;
+  cursor:pointer;
+}
+
+textarea{
+  resize:vertical;
+}
+
+header{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -48,21 +78,142 @@ ul{
 }
 
 .button{
-  background-color: brown;
+  background-color: #00000000;
+}
+
+.button:hover{
+  border: none;
+  
+}
+
+.book{
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top :10%;
+  width: 80vw;
+  height: 80vh;
+  background-color: #2a2a2a;
+  border-radius: 20px;
+
+}
+
+.book .content{
+  width: 100%;
+  height: 90%;
+  color: #212121;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+.book h1{
+  color: wheat;
+  font-size: 50px;
+}
+
+.book p{
+  color: wheat;
+  text-align: justify;
+  text-indent: 15%;
+  padding: 5%;
+}
+
+.controls{
+  width: 100%;
+  height: 10%;
+  flex-grow: 1;
+}
+
+.controls button{
+  float: right;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 40px;
 }
 
 .bookCape{
   width: 100px;
 }
 
+.addCard{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .bookCard{
+  display: flex;
+  flex-direction: column;
+
+  box-sizing: border-box;
+
   color: #fefbfb;
   background-color: hsl(0, 0%, 10%);
   padding: 20px;
   border-radius: 10px;
-  margin: 40px;
+  margin: 20px;
+  width: 25vh;
+  height: 40vh;
+
+  box-shadow: 20px 20px rgb(20, 19, 20);
+  transition: 200ms;
 }
 
+.bookCard:hover{
+  scale: 1.1;
+  border: 4px solid #2A7FFF ;
+  transition: 200ms;
+
+}
+
+.bookCardItem{
+  display: flex;
+}
+
+.idContainer{
+  color : #212121;
+  width: 10%;
+  justify-content: start;
+  align-items: start;
+
+}
+
+.idContainer h2{
+  margin: 0;
+}
+
+.infoContainer{
+  height: 70%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.optionContainer{
+  height: 20%;
+  align-items: end;
+  justify-content: end;
+}
+
+
+.optionContainer button{
+  height: 60%;
+}
+
+.bookList{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.list{
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  width: 80vw;
+}
 
 .bookList ul{
   list-style-type: none;
@@ -70,9 +221,9 @@ ul{
   margin: 0;
 }
 
+
 .form{
-  width: 30vw;
-  margin: 20px;
+
   
 }
 
@@ -94,4 +245,21 @@ ul{
 .form button{
   float: left;
 
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #2A7FFF;
+  border-radius: 10px;
 }

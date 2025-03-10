@@ -17,7 +17,7 @@ const getBookById = (req,res)=>{
 }
 
 const addBook = (req,res)=>{
-    const {name, year, author } = req.body;
+    const {name, year, author, content} = req.body;
 
     console.log(req.body)
 
@@ -25,9 +25,9 @@ const addBook = (req,res)=>{
         if(result.rows.length){
             res.send("Book Already Exists")
         }else{
-            pool.query(queries.addBook,[name,year,author],(error,result)=>{
+            pool.query(queries.addBook,[name,year,author,content],(error,result)=>{
                 if(error) throw error;
-                res.status(201).json("Book Created Successfully!")
+                res.status(201).json(result.rows)
             })
         }
     })
@@ -57,6 +57,7 @@ const deleteBook = (req,res)=>{
 const updateBook = (req,res)=>{
     const id = parseInt(req.params.id)
     const { name } = req.body
+
 
     pool.query(queries.getBookById,[id],(error,result)=>{
         const notFound = !result.rows.length
